@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 705564283423546114}
   - component: {fileID: 6451525038616435722}
   - component: {fileID: 1586589518910462667}
-  - component: {fileID: -2172859639038564171}
+  - component: {fileID: -5366786480969937143}
   m_Layer: 7
   m_Name: Bomb
   m_TagString: Untagged
@@ -144,7 +144,7 @@ MonoBehaviour:
   idleSprite: {fileID: -1483665779731714255, guid: 975894a97cf0594469745d6e9e8bd8e0, type: 3}
   loop: 1
   idle: 0
---- !u!82 &-2172859639038564171
+--- !u!82 &-5366786480969937143
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: beb7d16f0655b964e851a7001c6d804d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6dbc1de0396570c43a170e894a99bad7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

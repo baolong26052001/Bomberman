@@ -7,8 +7,11 @@ public class ItemPickUp : MonoBehaviour
     public enum ItemType
     {
         ExtraBomb,
-        BlastRadius,
-        SpeedIncrease
+        FireUp,
+        SpeedIncrease,
+        SpeedDecrease,
+        FireDown,
+
     }
     public ItemType itemType; 
 
@@ -18,11 +21,17 @@ public class ItemPickUp : MonoBehaviour
             case ItemType.ExtraBomb:
                 player.GetComponent<BombController>().AddBomb();
                 break;
-            case ItemType.BlastRadius:
+            case ItemType.FireUp:
                 player.GetComponent<BombController>().explosionRadius++;
+                break;
+            case ItemType.FireDown:
+                player.GetComponent<BombController>().FireDown();
                 break;
             case ItemType.SpeedIncrease:
                 player.GetComponent<MovementController>().speed++;
+                break;
+            case ItemType.SpeedDecrease:
+                player.GetComponent<MovementController>().DecreaseSpeed();
                 break;
             default:
                 break;
@@ -33,7 +42,7 @@ public class ItemPickUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             OnPickUp(other.gameObject);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

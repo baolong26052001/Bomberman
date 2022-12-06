@@ -98,4 +98,16 @@ public class MovementController : MonoBehaviour
         gameObject.SetActive(false);
         FindObjectOfType<GameManager>().CheckWinState();
     }
+    public void DecreaseSpeed()
+    {
+        if (speed <= 5)
+        {
+            speed = 5;
+        }
+        else
+        {
+            speed--;
+        }
+        
+    }
 }

@@ -5,7 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class BombController : MonoBehaviour
 {
-    
     [Header("Bomb")]
     public KeyCode inputKey = KeyCode.Space;
     public GameObject bombPrefab;
@@ -54,9 +53,6 @@ public class BombController : MonoBehaviour
         Explosion explosion = Instantiate(explosionPrefab, explosionPos, Quaternion.identity);
         explosion.SetActiveRenderer(explosion.start);
         explosion.DestroyAfter(explosionDuration);
-
-        
-        
 
         Explode(explosionPos, Vector2.up, explosionRadius);
         Explode(explosionPos, Vector2.down, explosionRadius);
@@ -110,4 +106,29 @@ public class BombController : MonoBehaviour
     public void AddBomb(){
         bombsRemaining++;
     }
+
+    public void DecreaseBomb()
+    {
+        if (bombsRemaining <= 0)
+        {
+            bombsRemaining = bombAmount;
+        }
+        else
+        {
+            bombsRemaining--;
+        }
+    }
+
+    public void FireDown()
+    {
+        if (explosionRadius <= 1)
+        {
+            explosionRadius = 1;
+        }
+        else
+        {
+            explosionRadius--;
+        }
+    }
+    
 }
