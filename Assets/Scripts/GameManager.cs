@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         }
         if(aliveCount <= 1)
         {
-            Invoke(nameof(NewRound),3f);
+            Invoke(nameof(NewRound),1f);
         }
         
 
@@ -29,6 +29,6 @@ public class GameManager : MonoBehaviour
     }
     private void NewRound()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("GameOverScreen");
     }
 }
