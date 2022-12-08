@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
             Invoke(nameof(NewRound),1f);
         }
         
+        
 
 
     }
