@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScreenSwitcher : MonoBehaviour
 {
-    public void playGame()
+    public void PlayGame()
     {
         SceneManager.LoadScene("SelectMap");
     }
