@@ -39,4 +39,12 @@ public class GameManager : MonoBehaviour
     {
         //SceneManager.LoadScene("GameOverScreen");
     }
+    public void RestartButton()
+    {
+        SceneManager.LoadScene("SelectMap");
+    }
+    public void ExitButton()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
