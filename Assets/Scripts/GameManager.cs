@@ -8,11 +8,13 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
     public GameObject[] players;
 
     public GameObject gameOver;
     public TMP_Text playerWon;
-
+    public AudioSource music;
+    
     public void CheckWinState()
     {
         int aliveCount = 0;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
             {
                 aliveCount++;
                 gameOver.SetActive(true);
+                music.Stop();
                 playerWon.text = player.name + " won";
                 
             }
@@ -46,5 +49,9 @@ public class GameManager : MonoBehaviour
     public void ExitButton()
     {
         SceneManager.LoadScene("Menu");
+    }
+    public void BackButton()
+    {
+        SceneManager.LoadScene("SelectMap");
     }
 }
