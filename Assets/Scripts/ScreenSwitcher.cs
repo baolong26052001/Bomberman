@@ -9,4 +9,8 @@ public class ScreenSwitcher : MonoBehaviour
     {
         SceneManager.LoadScene("SelectMap");
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
