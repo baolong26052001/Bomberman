@@ -14,34 +14,62 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     public TMP_Text playerWon;
     public AudioSource music;
+    public TMP_Text timeWatch;
+
+    private int duration = 5;
+    private int remainingDuration;
     
+
+    private void Start()
+    {
+
+        Being(duration);
+    }
+
+    private void Being(int second)
+    {
+        remainingDuration = second;
+        StartCoroutine(UpdateTime());
+    }
     public void CheckWinState()
     {
         int aliveCount = 0;
-
-
+        bool winGame = false;
         foreach (GameObject player in players)
         {
             if (player.activeSelf)
             {
-                aliveCount++;
-                gameOver.SetActive(true);
-                music.Stop();
+                winGame = true;
                 playerWon.text = player.name + " won";
+                music.Stop();
+                gameOver.SetActive(true);
                 
             }
         }
-        if (aliveCount <= 1)
+        /*if (aliveCount <= 1)
         {
-            Invoke(nameof(NewRound), 1f);
-        }
-
-        
+            //Invoke(nameof(NewRound), 1f);
+        }*/
     }
-    private void NewRound()
+    
+    private IEnumerator UpdateTime()
     {
-        //SceneManager.LoadScene("GameOverScreen");
+        while (remainingDuration >= 0)
+        {
+            Debug.Log("Timer: " + remainingDuration / 60 + ": " + remainingDuration % 60);
+            timeWatch.text =   remainingDuration / 60 + " : " + remainingDuration % 60;
+            remainingDuration--;
+            yield return new WaitForSeconds(1f);
+        }
+        yield return null;
+        if (remainingDuration <= 0)
+        {
+            Time.timeScale = 0f;
+            music.Stop();
+            gameOver.SetActive(true);
+        }
     }
+
     public void RestartButton()
     {
         SceneManager.LoadScene("SelectMap");
