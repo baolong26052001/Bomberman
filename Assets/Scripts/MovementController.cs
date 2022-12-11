@@ -83,6 +83,7 @@ public class MovementController : MonoBehaviour
     {
         enabled = false;
         GetComponent<BombController>().enabled = false;
+        Invoke(nameof(OnDeathSequenceEnded), 1.25f);
 
         spriteUp.enabled = false;
         spriteDown.enabled = false;
@@ -90,7 +91,6 @@ public class MovementController : MonoBehaviour
         spriteRight.enabled = false;
         spriteDeath.enabled = true;
 
-        Invoke(nameof(OnDeathSequenceEnded), 1.25f);
     }
 
     private void OnDeathSequenceEnded()

@@ -10,13 +10,18 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject[] players;
+    private bool winGame = false;
 
     public GameObject gameOver;
     public TMP_Text playerWon;
     public AudioSource music;
     public TMP_Text timeWatch;
 
-    private int duration = 5;
+<<<<<<< HEAD
+    private int duration = 20;
+=======
+    private int duration = 180;
+>>>>>>> ca2b836ba2f4f4c5e1091f82b3c5be91c565d981
     private int remainingDuration;
     
 
@@ -33,8 +38,8 @@ public class GameManager : MonoBehaviour
     }
     public void CheckWinState()
     {
-        int aliveCount = 0;
-        bool winGame = false;
+        //int aliveCount = 0;
+        
         foreach (GameObject player in players)
         {
             if (player.activeSelf)
@@ -54,7 +59,7 @@ public class GameManager : MonoBehaviour
     
     private IEnumerator UpdateTime()
     {
-        while (remainingDuration >= 0)
+        while (remainingDuration >= 0 && winGame == false)
         {
             Debug.Log("Timer: " + remainingDuration / 60 + ": " + remainingDuration % 60);
             timeWatch.text =   remainingDuration / 60 + " : " + remainingDuration % 60;
